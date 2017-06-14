@@ -4,8 +4,9 @@ node {
   stage('scm'){
     checkout scm
   }
-  stage('branch'){
-    echo env.BRANCH_NAME
-    echo env.CHANGE_ID
+  stage('test'){
+    sh 'mvn test'
   }
+  stage('install'){
+    sh 'mvn install'
 }
